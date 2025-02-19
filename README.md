@@ -1,37 +1,30 @@
-# collection-framework-hashmap-hashtable
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+# collection-framework-date and calendar
+import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
-public class SimpleUserInputMap {
-public static void main(String[] args) {
-// Create a HashMap and a Hashtable
-Map&lt;String, Integer&gt; hashMap = new HashMap&lt;&gt;();
-Map&lt;String, Integer&gt; hashtable = new Hashtable&lt;&gt;();
 
-// Get key-value pairs from the user
+public class UserInputDateAndCalendar {
+public static void main(String[] args) {
+// Create a Calendar object and set it to the current date and time
+Calendar calendar = Calendar.getInstance();
+// Print the current date and time using the Calendar object
+System.out.println(&quot;Current Date and Time: &quot; + calendar.getTime());
+// Get the number of days to add from the user
 Scanner scanner = new Scanner(System.in);
-System.out.print(&quot;Enter key-value pairs (key1=value1 key2=value2 ...): &quot;);
-String input = scanner.nextLine();
-// Parse the input string and add key-value pairs to both maps
-String[] keyValuePairs = input.split(&quot;\\s+&quot;);
-for (String pair : keyValuePairs) {
-String[] keyValue = pair.split(&quot;=&quot;);
-if (keyValue.length == 2) {
-String key = keyValue[0];
-int value = Integer.parseInt(keyValue[1]);
-hashMap.put(key, value);
-hashtable.put(key, value);
-}
-}
-// Print keys and values of both maps
-System.out.println(&quot;HashMap: &quot; + hashMap);
-System.out.println(&quot;Hashtable: &quot; + hashtable);
+System.out.print(&quot;Enter the number of days to add: &quot;);
+int daysToAdd = scanner.nextInt();
+// Add the specified number of days to the current date using the Calendar object
+calendar.add(Calendar.DAY_OF_MONTH, daysToAdd);
+// Get the updated date from the Calendar object
+Date updatedDate = calendar.getTime();
+// Print the updated date using the Calendar object
+System.out.println(&quot;Updated Date: &quot; + updatedDate);
 // Close the scanner to avoid resource leaks
 scanner.close();
 }
 }
 OUTPUT:
-Enter key-value pairs (key1=value1 key2=value2 ...): name= Anu city=coimbatore
-HashMap: {name=Anu, city=coimbatore}
-Hashtable: {name=Anu, city=coimbatore}
+Current Date and Time: Tue Jan 18 11:30:45 UTC 2022
+Enter the number of days to add: 5
+Updated Date: Sun Jan 23 11:30:45 UTC 2022
+
