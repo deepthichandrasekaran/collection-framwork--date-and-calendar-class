@@ -1,4 +1,4 @@
-# collection-framwork--date-and-calendar-class
+# collection-framework-hashmap-hashtable
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
